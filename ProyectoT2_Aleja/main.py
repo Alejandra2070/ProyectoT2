@@ -48,13 +48,13 @@ if(x==1):
             "fechaNacimiento": fechaNacimientoNE,
             "cedula": cedulaNE,
             "email": emailNE,
-            "github": gitHubNE
+            "github": gitHubNE,
         }
-        ["info"].append(nuevoEstudiante)
-        def guardarArchivo(miData):
-         with open("ProyectoT2_Aleja/info.json","w") as outfile:
-          json.dump(miData,outfile)
-  
+        miInfo = abrirArchivo()
+        miInfo[0]["estudiantes"].append(nuevoEstudiante)
+        guardarArchivo(miInfo)
+        print("Se ha agregado el nuevo estudiante correctamente")
+        
    
 elif(x==2):
     miInfo=abrirArchivo()
@@ -143,5 +143,22 @@ elif(x==3):
         print("GitHub:",i["github"])
         print("################")
         print("")
+elif(x==4):
+    miInfo = abrirArchivo()
+    eliminarEstudiante = input("Ingrese el ID del estudiante que quiere eliminar: ")
+    estEncontrado = False
+    for grupo in miInfo:
+        for estudiante in grupo["estudiantes"]:
+            if estudiante["id"] == eliminarEstudiante:
+                grupo["estudiantes"].remove(estudiante)
+                estEncontrado = True
+                break
+        if estEncontrado:
+            break
+    if estEncontrado:
+        guardarArchivo(miInfo)
+        print("El estudiante ha sido eliminado correctamente")
+    else:
+        print("El estudiante no ha sido encontrado")
 
 #Desarrollado por Alejandra Machuca Grupo T2

@@ -22,6 +22,15 @@
                 "cedula": 283543721,
                 "email": "jerxon@gmail.com",
                 "github": "github.com"
+            },
+            {
+                "nombre": "Esteban",
+                "apellido": "Obregon",
+                "edad": 18,
+                "fechaNacimiento": 2042000,
+                "cedula": 457896151,
+                "email": "esteban@gmail.com",
+                "github": "github.com"
             }
         ]
     },
